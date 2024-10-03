@@ -31,19 +31,15 @@ public class pemilihan2percobaan2No26 {
         }
 
        
-        switch (pilihanMenu) {
-            case 1:
-                harga = 14000; 
-                break;
-            case 2:
-                harga = 3000; 
-                break;
-            case 3:
-                harga = 15000; 
-                break;
-            default:
-                System.out.println("Pilihan menu tidak valid.");
-                return; 
+        if (pilihanMenu == 1) {
+            harga = 14000; 
+        } else if (pilihanMenu == 2) {
+            harga = 3000; 
+        } else if (pilihanMenu == 3) {
+            harga = 15000; 
+        } else {
+            System.out.println("Pilihan menu tidak valid."); 
+            return; 
         }
 
         
