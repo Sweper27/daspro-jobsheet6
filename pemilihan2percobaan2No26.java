@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class pemilihan2percobaan2No26 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-
         int pilihanMenu;
         String member;
+        String jenisPembayaran;
         double diskon, harga, totalBayar;
 
         System.out.println("-----------------------");
@@ -16,21 +16,23 @@ public class pemilihan2percobaan2No26 {
         System.out.println("-------------------------------------");
         System.out.print("Masukkan angka dari menu yang dipilih = ");
         pilihanMenu = input.nextInt();
-        input.nextLine(); // Clear the buffer
+        input.nextLine(); 
         System.out.print("Apakah punya member (y/n) ? = ");
         member = input.nextLine();
+        System.out.print("Masukkan jenis pembayaran (QRIS/Non-QRIS) = ");
+        jenisPembayaran = input.nextLine();
         System.out.println("-------------------------------------");
 
-        // Set discount for members
+        
         if (member.equalsIgnoreCase("y")) {
-            diskon = 0.10;
+            diskon = 0.10; 
             System.out.println("Besar diskon = 10%");
         } else {
-            diskon = 0.0;
+            diskon = 0.0; 
             System.out.println("Tidak ada diskon untuk non-member.");
         }
 
-       
+        
         if (pilihanMenu == 1) {
             harga = 14000; 
         } else if (pilihanMenu == 2) {
@@ -44,30 +46,20 @@ public class pemilihan2percobaan2No26 {
 
         
         totalBayar = harga - (harga * diskon);
+
+        
+        if (jenisPembayaran.equalsIgnoreCase("QRIS")) {
+            totalBayar -= 1000; 
+            System.out.println("Potongan harga Rp. 1.000 untuk pembayaran QRIS telah diterapkan.");
+        }
+
+        
+        if (totalBayar < 0) {
+            totalBayar = 0; 
+        }
+
+        
         System.out.println("Harga = " + harga);
-        System.out.println("Total bayar setelah diskon = " + totalBayar);
-
-        if (member.equalsIgnoreCase("n")) {
-            if (pilihanMenu == 1) {
-                harga = 14000;
-                System.out.println("Harga ricebowl = " + harga);
-                
-            }else if (pilihanMenu == 2) {
-                harga = 3000;
-                System.out.println("Harga ice tea = " + harga);
-
-            }else {
-                System.out.println("Masukkan pilihan menu dengan benar");
-                return;
-            }
-            
-            System.out.println("MTotal bayar = " + harga);
-
-
-        }else {
-            System.out.println("member tidak valid");
-
-        }System.out.println("-------------------------------------");
-
+        System.out.println("Total bayar setelah diskon dan potongan = " + totalBayar);
     }
 }
